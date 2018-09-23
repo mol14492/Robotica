@@ -150,3 +150,59 @@ void barrido (int angulo, int pin ){
   servo.detach();        //Desconectamos el servo del pin.
   delay(10);
   }
+
+
+
+
+  /*
+ *  FUNCION: barrido2(angulo,pin)
+ * 
+ *  Esta funcion hace un barrido del angulo actual al angulo deseado 
+ *  para que el servo se mueva mas fluido. 
+ *
+ *  Como argumento se tiene el angulo al que se desea llegar y el pin 
+ * .en donde esta conectado el servo.
+*/
+/*
+void barrido2 (int angulo, int angulo2,int pin, int pin2 ){
+    //Se hace reset de las variables//
+    antiguo=0;
+    nuevo=0;
+    valor=0;
+    antiguo2=0;
+    nuevo2=0;
+    valor2=0;
+    // Se conecta el servo al pin. //
+    servo.attach(pin);
+    servo1.attach(pin2);
+    Serial.println("- Se conecto el servo al pin: " + String(pin));
+    Serial.println("- Se conecto el servo 2 al pin: " + String(pin2));
+    //Se obtiene el valor del angulo anterior//
+    antiguo=servo.read();
+    antiguo2=servo1.read();
+    Serial.println("- El servo tiene el angulo:"+ String(antiguo));
+    Serial.println("- El servo 2 tiene el angulo:"+ String(antiguo2));
+    //Se hace la conversion para el barrido.//
+    valor=(angulo-antiguo)/20;  // Se fracciona en x partes el valor.
+    valor2=(angulo2-antiguo2)/20;
+    //Se hace el barrido//
+    for(int i=0;i<30;i++){
+      nuevo=antiguo+valor;    //El nuevo valor es la suma entre el valor antiguo y el fraccionado.
+      nuevo2=antiguo2+valor2;
+      Serial.println("- El nuevo valor es: "+String(nuevo));
+      Serial.println("- El nuevo valor2 es: "+String(nuevo2));
+      if(nuevo<180 && nuevo>0 && nuevo2<180 && nuevo2>0){
+        servo.write(nuevo);     //Se escribe el valor en el servo.
+        servo1.write(nuevo2);
+        antiguo=nuevo;
+        antiguo2=nuevo2;
+        delay(5);
+      }
+  }
+  servo.write(angulo);   //Se escribe en el servo el valor final.
+  servo1.write(angulo2);
+  servo.detach();        //Desconectamos el servo del pin.
+  servo1.detach();
+  delay(10);
+  }
+*/
